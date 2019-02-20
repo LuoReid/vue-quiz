@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://unpkg.com/vue@2.6.6/dist/vue.js"></script>
+
+    <div id="root">
+      <p>Is this an Hello world?</p>
+      {{message}}
+      <input v-model="message" />
+    </div>
+<div id="root1">{{message1}}</div>
+    <script>console.log('Yes! We are using Vue version',Vue.version)
+    var app = new Vue({
+      el:'#root',
+      data(){return{message:'Hello Vue.js:)'}}
+    })
+    var app1 = new Vue({ data(){ return { message1:'Hello Vue again:)'}}})
+    app1.$mount('#root1');
+
+    </script>
+</body>
+</html>
