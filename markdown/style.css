@@ -1,0 +1,26 @@
+#notebook{
+  display:flex;
+  flex: row;
+}
+.side-bar{
+ width: 20%;
+}
+.toolbar{
+
+}
+.notes{
+
+}
+.note{
+ padding: 10px;
+}
+.selected{
+    background: orange;
+    color: white;
+}
+.main{
+  width: 40%;
+}
+.preview{
+  width: 40%;
+}

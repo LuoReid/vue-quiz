@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notebook</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+    <script src="https://unpkg.com/vue@2.6.6/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
+
+    <div id="notebook">
+      <aside class="side-bar">
+        <div class="toolbar">
+          <button v-on:click="addNote" v-bind:title="notes.length + ' note(s) already'">
+            <i class="material-icons">Add note</i>
+          </button>
+        </div>
+        <div class="notes">
+          <div class="note" v-on:click="selectNote(item)" 
+          v-bind:class="{ selected: item.id === selectedId }" 
+          v-for="item of notes">{{item.title}}</div>
+        </div>
+      </aside>
+      <template v-if="selectedId">
+        <section class="main" >   
+          <div class="toolbar">       
+          <input v-model="selectedNote.title" placeholder="Note title" />
+          <button v-on:click="removeNote" title="Remove note"><i class="material-icons">Delete</i></button>
+        </div>
+          <textarea  v-model="selectedNote.content"></textarea>
+        </section>        
+        <aside class="preview" v-html="notePreview">{{notePreview}}</aside>
+      </template>
+    </div> 
+    <script src="./app.js"></script>
+</body>
+</html>
