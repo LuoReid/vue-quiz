@@ -1,3 +1,6 @@
+// 过滤器
+Vue.filter('date',time => moment(time).format('YY/MM/DD HH:mm'))
+
 new Vue({
   el: '#notebook',
   data() {
@@ -17,6 +20,29 @@ new Vue({
       return this.notes.slice()
       .sort((a,b) => a.created - b.created)
       .sort((a,b) => (a.favorite === b.favorite) ? 0 : (a.favorite ? -1 : 1))
+    },
+    linesCount(){
+      if(this.selectedNote){
+        return this.selectedNote.content.split(/\r\n|\r|\n/).length
+      }
+    },
+    wordsCount(){
+      if(this.selectedNote){
+        let s = this.selectedNote.content
+        //换行符转换为空格
+        s = s.replace(/\n/g,' ')
+        //排除开头和结尾的空格
+        s = s.replace(/(^\s*)|(\s*$)/gi,'')
+        //将多个重复空格转换为一个
+        s = s.replace(/\s\s+/gi,' ')
+        //返回空格数量？
+        return s.split(' ').length
+      }
+    },
+    charactersCount(){
+      if(this.selectedNote){
+        return this.selectedNote.content.split('').length
+      }
     }
   },
   methods: {

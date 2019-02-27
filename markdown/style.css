@@ -6,7 +6,12 @@
  width: 20%;
 }
 .toolbar{
-
+ height: 33px;
+ line-height: 33px;
+}
+.toolbar input{
+  padding: 0;
+  height: 30px;
 }
 .notes{
 
