@@ -56,6 +56,7 @@ new Vue({
         favorite: false,
       }
       this.notes.push(note)
+      this.selectNote(note)
     },
     selectNote(note) {
       this.selectedId = note.id
