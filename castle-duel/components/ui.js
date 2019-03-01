@@ -11,3 +11,12 @@ Vue.component('top-bar', {
     console.log(this.players);
   }
 })
+Vue.component('card',{
+  template:`<div class="card" v-bind:class="'type-' + def.type">
+    <div class="title">{{def.title}} </div>
+    <img class="separator" src="svg/card-separator.svg" />
+    <div class="description"><div v-html="def.description"></div></div>
+    <div class="note" v-if="def.note"><div v-html="def.note"></div></div>
+  </div>`,
+  props:['def'],
+})
