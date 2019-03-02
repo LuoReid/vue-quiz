@@ -28,3 +28,12 @@ Vue.component('card', {
     }
   }
 })
+Vue.component('hand',{
+  template:`<div class="hand">
+    <div class="wrapper">
+    <!-- card -->
+      <card v-for="card of cards" v-bind:def="card" />
+    </div>
+  </div>`,
+  props:['cards'],
+})
