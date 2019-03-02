@@ -7,16 +7,24 @@ Vue.component('top-bar', {
     <div class="player p1">{{players[1].name}} </div>
   </div>`,
   props: ['players', 'currentPlayerIndex', 'turn'],
-  created(){
+  created() {
     console.log(this.players);
   }
 })
-Vue.component('card',{
-  template:`<div class="card" v-bind:class="'type-' + def.type">
+Vue.component('card', {
+  template: `<div class="card" v-bind:class="'type-' + def.type" v-on:click="play">
     <div class="title">{{def.title}} </div>
     <img class="separator" src="svg/card-separator.svg" />
     <div class="description"><div v-html="def.description"></div></div>
     <div class="note" v-if="def.note"><div v-html="def.note"></div></div>
   </div>`,
-  props:['def'],
+  props: ['def'],
+  methods: {
+    play() {
+      this.$emit('play')
+      this.$on('play', () => {
+        console.log('Caught a play event!')
+      })
+    }
+  }
 })

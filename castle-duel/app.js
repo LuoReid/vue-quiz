@@ -3,7 +3,7 @@ new Vue({
   el: '#app',
   template: `<div id="#app">{{ worldRatio }}
     <top-bar v-bind:turn="turn" v-bind:current-player-index="currentPlayerIndex" v-bind:players="players" />  
-    <card v-bind:def="testCard" v-on:click.native="handlePlay" />
+    <card v-bind:def="testCard" v-on:play="handlePlay" />
   </div>`,
   mounted() {
     console.log(this.$data === state)
