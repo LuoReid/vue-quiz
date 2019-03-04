@@ -4,7 +4,9 @@ new Vue({
   template: `<div id="#app">{{ worldRatio }}
     <top-bar v-bind:turn="turn" v-bind:current-player-index="currentPlayerIndex" v-bind:players="players" />  
     <card v-bind:def="testCard" v-on:play="handlePlay" />
-    <hand v-bind:cards="testHand" />
+    <transition name="hand">
+      <hand v-bind:cards="testHand" v-if="!activeOverlay" />
+    </transition>
   </div>`,
   mounted() {
     console.log(this.$data === state)

@@ -12,6 +12,7 @@ var state = {
   turn: 1,
   players: [{ name: 'Anne of Cleves' }, { name: 'William the Bald' }],
   currentPlayerIndex: Math.round(Math.random()),
+  activeOverlay:null,
   testHand:[],
   // TODO Other things
 }
