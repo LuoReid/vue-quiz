@@ -5,13 +5,12 @@ new Vue({
     <top-bar v-bind:turn="turn" v-bind:current-player-index="currentPlayerIndex" v-bind:players="players" />  
     <card v-bind:def="testCard" v-on:play="handlePlay" />
     <transition name="hand">
-      <hand v-bind:cards="testHand" v-if="!activeOverlay" />
+      <hand v-bind:cards="testHand" v-if="!activeOverlay" v-on:card-play="testPlayCard" />
     </transition>
   </div>`,
   mounted() {
-    console.log(this.$data === state)
     this.testHand = this.createTestHand()
-    console.log(this.testHand);
+    console.log('testhand:',this.testHand);
   },
   data: state,
   computed: {
@@ -40,6 +39,11 @@ new Vue({
         id: randomId,
         def: cards[randomId].def,
       }
+    },
+    testPlayCard(card){
+      console.log('testPlayCard',card)
+      const index = this.testHand.indexOf(card)
+      this.testHand.splice(index,1)
     }
   }
 })

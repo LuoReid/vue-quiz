@@ -22,9 +22,10 @@ Vue.component('card', {
   methods: {
     play() {
       this.$emit('play')
-      this.$on('play', () => {
-        console.log('Caught a play event!')
-      })
+      console.log('play')
+      // this.$on('play', () => {
+      //   console.log('Caught a play event!')
+      // })
     }
   }
 })
@@ -32,8 +33,14 @@ Vue.component('hand',{
   template:`<div class="hand">
     <div class="wrapper">
     <!-- card -->
-      <card v-for="card of cards" v-bind:def="card" />
+      <card v-for="card of cards" v-bind:def="card" v-on:play="handlePlay(card)" />
     </div>
   </div>`,
   props:['cards'],
+  methods:{
+    handlePlay(card){
+      this.$emit('card-play',card)
+      console.log('handlePlay')
+    }
+  }
 })
