@@ -7,6 +7,7 @@ new Vue({
     <transition name="hand">
       <hand v-if="!activeOverlay" v-bind:cards="testHand"  v-on:card-play="testPlayCard" />
     </transition>
+    <overlay> Hello Overlay:) </overlay>
   </div>`,
   mounted() {
     this.testHand = this.createTestHand()
