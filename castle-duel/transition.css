@@ -26,3 +26,20 @@
 .hand-leave-to .card {
   margin: 0 -100px;
 }
+.card-move{
+  transition: all .3 s;
+}
+.card-enter {
+  opacity: 0;
+  transform: scale(.8) translateX(100px);
+}
+.card-leave-active {
+  transition: all 1s, opacity .5s .5s;
+  position: absolute !important;
+  z-index: 10;
+  pointer-events: none;
+}
+.card-leave-to {
+  opacity: 0;
+  transform: translateX(-106px) translateY(-300px) scale(1.5);
+}
