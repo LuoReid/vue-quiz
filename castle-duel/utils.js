@@ -96,3 +96,7 @@ function checkPlayerLost (player) {
 function isOnePlayerDead () {
   return state.players.some(p => p.dead)
 }
+
+// function getLastPlayedCard(player){
+//   return cards[player.lastPlayedCardId]
+// }

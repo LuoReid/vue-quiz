@@ -10,9 +10,25 @@ var state = {
   // World
   worldRatio: getWorldRatio(),
   turn: 1,
-  players: [{ name: 'Anne of Cleves' }, { name: 'William the Bald' }],
+  players: [{
+    name: 'Anne of Cleves',
+    food: 10,
+    health: 10,
+    skipTurn: false,
+    hand: [],
+    lastPlayedCardId: null,
+    dead: false,
+  }, {
+    name: 'William the Bald',
+    food: 10,
+    health: 10,
+    skipTurn: false,
+    hand: [],
+    lastPlayedCardId: null,
+    dead: false,
+  }],
   currentPlayerIndex: Math.round(Math.random()),
-  activeOverlay:null,
-  testHand:[],
+  activeOverlay: null,
+  testHand: [],
   // TODO Other things
 }

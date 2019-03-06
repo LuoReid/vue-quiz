@@ -57,3 +57,26 @@ Vue.component('overlay', {
     }
   }
 })
+Vue.component('overlay-content-player-turn',{
+  template:`<div>
+    <div class="big" v-if="player.skipTurn">{{player.name}},<br>your turn is skipped!</div>
+    <div class="big" v-else>{{player.name}},<br> your turn has come!</div>
+    <div>Tap to continue</div>
+  </div>`,
+  props:['player'],  
+})
+Vue.component('overlay-content-last-play',{
+  template:`<div>
+    <div v-if="opponent.skippedTurn">{{opponent.name}} turn was skipped!</div>
+    <template v-else>
+      <div>{{opponent.name}} just played:</div>
+      <card v-bind:def="lastPlayedCard" />
+    </template>
+  </div>`,
+  props:['opponent'],
+  computed:{
+    lastPlayedCard(){
+      return getLastPlayedCard(this.opponent)
+    }
+  }
+})
