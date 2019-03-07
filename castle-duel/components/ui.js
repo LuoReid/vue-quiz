@@ -22,19 +22,16 @@ Vue.component('card', {
   methods: {
     play() {
       console.log('play')
-      this.$emit('play')
-      // this.$on('play', () => {
-      //   console.log('Caught a play event!')
-      // })
+      this.$emit('play') 
     }
   }
 })
 Vue.component('hand', {
   template: `<div class="hand">
     <div class="wrapper">
-      <transition-group name="card" tag="div" class="cards">
+      <transition-group name="card" tag="div" class="cards"> 
         <card v-for="card of cards" v-bind:def="card.def" v-bind:key="card.uid" v-on:play="handlePlay(card)" />
-      </transition-group>  
+      </transition-group>
     </div>
   </div>`,
   props: ['cards'],

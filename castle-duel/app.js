@@ -3,7 +3,7 @@ new Vue({
   el: '#app',
   template: `<div id="#app">{{ worldRatio }}
     <top-bar v-bind:turn="turn" v-bind:current-player-index="currentPlayerIndex" v-bind:players="players" />  
-    <!----> <card v-bind:def="testCard" v-on:play="handlePlay" /> 
+    <card v-bind:def="testCard" v-on:play="handlePlay" /> 
     <transition name="hand">
       <hand v-if="!activeOverlay" v-bind:cards="testHand"  v-on:card-play="testPlayCard" />
     </transition>
@@ -11,7 +11,7 @@ new Vue({
   </div>`,
   mounted() {
     this.testHand = this.createTestHand()
-    console.log('testhand:', this.testHand);
+    console.log('testhand:', this.testHand)
   },
   data: state,
   computed: {

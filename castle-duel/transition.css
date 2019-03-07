@@ -43,3 +43,7 @@
   opacity: 0;
   transform: translateX(-106px) translateY(-300px) scale(1.5);
 }
+.hand{
+  /*css 会影响触发事件 */
+  pointer-events: auto;
+}
