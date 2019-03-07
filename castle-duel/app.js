@@ -7,7 +7,11 @@ new Vue({
     <transition name="hand">
       <hand v-if="!activeOverlay" v-bind:cards="testHand"  v-on:card-play="testPlayCard" />
     </transition>
-    <overlay> Hello Overlay:) </overlay>
+    <overlay v-if="activeOverlay">
+      <overlay-content-player-turn v-if="activeOverlay === 'player-turn'" v-bind:player="currentPlayer" />
+      <overlay-content-last-play v-else-if="activeOverlay === 'last-play'" v-bind:opponent="currentOpponent" />
+      <overlay-content-game-over v-else-if="activeOverlay === 'game-over'" v-bind:players="players" />
+    </overlay>
   </div>`,
   mounted() {
     this.testHand = this.createTestHand()

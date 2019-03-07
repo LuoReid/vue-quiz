@@ -29,6 +29,15 @@ var state = {
   }],
   currentPlayerIndex: Math.round(Math.random()),
   activeOverlay: null,
+  get currentPlayer() {
+    return state.players[state.currentPlayerIndex]
+  },
+  get currentOpponentId() {
+    return state.currentPlayerIndex === 0 ? 1 : 0
+  },
+  get currentOpponent() {
+    return state.players[state.currentOpponentId]
+  },
   testHand: [],
   // TODO Other things
 }

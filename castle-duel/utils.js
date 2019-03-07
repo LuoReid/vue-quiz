@@ -68,6 +68,7 @@ function applyCardEffect (card) {
 }
 
 function getLastPlayedCard (player) {
+  console.log(player.lastPlayedCardId)
   return cards[player.lastPlayedCardId]
 }
 
