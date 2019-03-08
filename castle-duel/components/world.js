@@ -41,8 +41,27 @@ Vue.component('banner-bar', {
   template: '#banner',
   props: ['color', 'ratio'],
   computed: {
-    height() {
+    targetHeight() {
       return 220 * this.ratio + 40
     },
   },
+  data() {
+    return {
+      height: 0,
+    }
+  },
+  created() {
+    this.height = this.targetHeight
+  },
+  watch: {
+    targetHeight(newVal, oldVal) {
+      const vm = this
+      new TWEEN.Tween({ value: oldVal })
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .to({ value: newVal }, 500)
+        .onUpdate(function () {
+          vm.height = this.value.toFixed(0)
+        }).start()
+    }
+  }
 })

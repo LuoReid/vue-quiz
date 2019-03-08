@@ -62,3 +62,8 @@ new Vue({
 window.addEventListener('resize', () => {
   state.worldRatio = getWorldRatio()
 })
+requestAnimationFrame(animate);
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
