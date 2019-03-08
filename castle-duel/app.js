@@ -7,7 +7,7 @@ new Vue({
       <castle v-for="(player, index) in players" v-bind:player="player" v-bind:index="index" />
       <div class="land" />
     </div>
-    <card v-bind:def="testCard" v-on:play="handlePlay" /> 
+    <!--<card v-bind:def="testCard" v-on:play="handlePlay" /> -->
     <transition name="hand">
       <hand v-if="!activeOverlay" v-bind:cards="testHand"  v-on:card-play="testPlayCard" />
     </transition>

@@ -4,14 +4,16 @@ Vue.component('castle', {
     <img class="ground" v-bind:src="'svg/ground' + index + '.svg'" />
     <castle-banners v-bind:player="player" />
   </div>`,
-  props: ['players', 'index'],
+  props: ['player', 'index'],
 })
 Vue.component('castle-banners', {
   template: `<div class="banners">
     <img class="food-icon" src="svg/food-icon.svg" />
     <bubble type="food" v-bind:value="player.food" v-bind:ratio="foodRatio" />
+    <banner-bar class="food-bar" color="#288339" v-bind:ratio="foodRatio" />
     <img class="health-icon" src="svg/health-icon.svg" />
     <bubble type="health" v-bind:value="player.health" v-bind:ratio="healthRatio" />
+    <banner-bar class="health-bar" color="#9b2e2e" v-bind:ratio="healthRatio" />
   </div>`,
   props: ['player'],
   computed: {
@@ -34,4 +36,13 @@ Vue.component('bubble', {
       return { top: (this.ratio * 220 + 40) * state.worldRatio + 'px', }
     }
   }
+})
+Vue.component('banner-bar', {
+  template: '#banner',
+  props: ['color', 'ratio'],
+  computed: {
+    height() {
+      return 220 * this.ratio + 40
+    },
+  },
 })
