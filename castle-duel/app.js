@@ -4,7 +4,8 @@ new Vue({
   template: `<div id="#app">{{ worldRatio }}
     <top-bar v-bind:turn="turn" v-bind:current-player-index="currentPlayerIndex" v-bind:players="players" />  
     <div class="world">
-      <castle v-for="(player, index) in players" v-bind:player="player" v-bind:index="index" />
+      <castle v-for="(player, index) in players" v-bind:player="player" v-bind:key="player.name" 
+        v-bind:index="index" />
       <div class="land" />
     </div>
     <!--<card v-bind:def="testCard" v-on:play="handlePlay" /> -->
@@ -20,6 +21,9 @@ new Vue({
     <transition name="fade">
       <div class="overlay-background" v-if="activeOverlay" />
     </transition>
+    <div class="clouds">
+      <cloud v-for="index in 10" v-bind:type="(index -1) % 5 + 1" v-bind:key="index" />
+    </div>
   </div>`,
   mounted() {
     this.testHand = this.createTestHand()

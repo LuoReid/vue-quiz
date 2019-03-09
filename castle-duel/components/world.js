@@ -65,3 +65,44 @@ Vue.component('banner-bar', {
     }
   }
 })
+Vue.component('cloud', {
+  template: `<div class="cloud" v-bind:class="'cloud-' + type" v-bind:style="style">
+    <img v-bind:src="'svg/cloud' + type + '.svg'" v-on:load="initPosition" />
+  </div>`,
+  props: ['type'],
+  data() {
+    return {
+      style: {
+        transform: 'none',
+        zIndex: 0,
+      }
+    }
+  },
+  methods: {
+    setPosition(left, top) {
+      this.style.transform = `translate(${left}px,${top}px)`
+    },
+    initPosition() {
+      const width = this.$el.clientWidth
+      this.setPosition(-width, 0)
+    },
+    startAnimation(delay = 0) {
+      const vm = this
+      const width = this.$el.clientWidth
+      const { min, max } = cloudAnimationDurations
+      const animationDuration = Math.random() * (max - min) + min
+      this.style.zIndex = Math.round(max - animationDuration)
+
+      const top = Math.random() * (window.innerHeight * 0.3)
+      new TWEEN.Tween({ value: -width })
+        .to({ value: window.innerWidth }, animationDuration).delay(delay)
+        .onUpdate(function () {
+          vm.setPosition(this.value, top)
+        })
+        .onComplete(() => {
+          this.startAnimation(Math.random() * 10000)
+        }).start()
+    }
+  }
+})
+const cloudAnimationDurations = { min: 10000, max: 50000, }
