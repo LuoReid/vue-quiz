@@ -21,7 +21,6 @@ Vue.component('card', {
   props: ['def'],
   methods: {
     play() {
-      console.log('play')
       this.$emit('play') 
     }
   }
@@ -29,7 +28,7 @@ Vue.component('card', {
 Vue.component('hand', {
   template: `<div class="hand">
     <div class="wrapper">
-      <transition-group name="card" tag="div" class="cards" V-on:after-leave="handleLeaveTransitionEnd"> 
+      <transition-group name="card" tag="div" class="cards" v-on:after-leave="handleLeaveTransitionEnd"> 
         <card v-for="card of cards" v-bind:def="card.def" v-bind:key="card.uid" v-on:play="handlePlay(card)" />
       </transition-group>
     </div>
@@ -37,10 +36,10 @@ Vue.component('hand', {
   props: ['cards'],
   methods: {
     handlePlay(card) {
-      console.log('handlePlay')
       this.$emit('card-play', card)
     },
     handleLeaveTransitionEnd(){
+      console.log('handleLeaveTransitionEnd')
       this.$emit('card-leave-end')
     }
   },

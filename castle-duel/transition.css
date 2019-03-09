@@ -54,6 +54,6 @@
 }
 
 .hand{
-  /*css 会影响触发事件 */
+  /* css 会影响触发事件  */
   pointer-events: auto;
 }
