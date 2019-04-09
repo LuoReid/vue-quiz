@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
+.review {
+  width: 20%;
+}
+
+.edit {
+  width: 60%;
+  display: flex;
+  flex-direction:row;  
+}
+.ppt-edit{
+ width: calc(100% - 10px);
+}
+.scrolle{
+  width: 10px;
+}
+.operate {
+  width: 20px;
+}

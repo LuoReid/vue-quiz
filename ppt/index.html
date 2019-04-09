@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PPT Creater</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PPT Creater</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-        <script src="https://unpkg.com/vue@2.6.6/dist/vue.js"></script>
-        <div class="ppt">
-            PPT Creater
-        </div>    
-    
+  <script src="https://unpkg.com/vue@2.6.6/dist/vue.js"></script>
+  <div class="ppt">
+    PPT Creater
+    <section class="main">
+      <aside class="review">
+        <div class="toolbar"><i>
+            <<</i> <i>大纲
+          </i><i>幻灯片</i></div>
+        <div class="ppt-item">
+          <hgroup>
+            <h2>空白演示</h2>
+            <h3>在此输入您的封面副标题</h3>
+          </hgroup>
+          <div></div>
+        </div>
+        <div class="toolbar"><i>+</i></div>
+      </aside>
+      <main class="edit">
+        <div class="ppt-edit">
+          <hgroup>
+            <h2>空白演示</h2>
+            <h3>在此输入您的封面副标题</h3>
+          </hgroup>
+          <div></div>
+        </div>
+        <div class="scroll">
+          <div class="scroll"></div>
+          <div><i>>></i><i>
+              <<</i> </div> </div> </main> 
+              <aside class="operate">
+                <div><i>对象属性</i><i>down</i><i>X</i></div>
+                <div>填充</div>
+                <div>填充<select name="" id=""></select></div>
+                <div><label><input type="radio" />纯色填充(s)</label></div>
+                <div><label>颜色(c)</label><select></select></div>
+                <div><label>透明度(I)</label><input type="range"></div>
+                <div><button>全部应用</button><button>重置背景</button></div>
+                </aside>
+    </section>
+    <section class="status"><i>60%</i><i>-</i><input type="range"><i>+</i><i>fullscreen</i></section>
+  </div>
+
 </body>
+
 </html>
